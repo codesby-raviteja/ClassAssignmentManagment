@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+
+
+
+#tasklist::-webkit-scrollbar {
+  display: none;
+}
+
+.custom-scroll-bar {
+  scrollbar-width: thin;
+  scrollbar-color: gray transparent;
+}
