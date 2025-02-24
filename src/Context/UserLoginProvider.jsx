@@ -8,7 +8,6 @@ import { addMultipleStudents, addStudent } from "../Store/StudentSlice"
 export const UserAuth = createContext(null)
 
 const UserAuthProvider = ({ children }) => {
-  const [user, setUser] = useState({})
 
   const dispatch = useDispatch()
 
@@ -32,7 +31,7 @@ const UserAuthProvider = ({ children }) => {
         } else {
           dispatch(addStudent(studentData[0]))
         }
-        // return data?.user?.user_metadata?.role
+        
       }
     } catch (error) {
       console.log(error)
@@ -93,7 +92,7 @@ const UserAuthProvider = ({ children }) => {
   }
 
   return (
-    <UserAuth.Provider value={{ signUp, singIn, user, setUser, signOut }}>
+    <UserAuth.Provider value={{ signUp, singIn, signOut }}>
       {children}
     </UserAuth.Provider>
   )

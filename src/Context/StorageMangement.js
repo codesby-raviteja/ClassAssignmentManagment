@@ -11,17 +11,3 @@ export const uploadPDF = async (studentId, taskId, file) => {
   }
 }
 
-export const listFiles = async () => {
-  const { data, error } = await supabase.storage
-    .from("Assignments")
-    .list(id + "/", {
-      limit: 100,
-      offset: 0,
-      sortBy: { column: "name", order: "asc" },
-    })
-  if (error) {
-    throw error
-  } else {
-    console.log(data)
-  }
-}

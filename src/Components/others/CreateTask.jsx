@@ -1,9 +1,8 @@
-import React, { useContext, useState } from "react"
+import React, {  useState } from "react"
 import {
   fetchStudentData,
   updatesupabaseTask,
 } from "../../Context/DatabaseMangement"
-import { UserAuth } from "../../Context/UserLoginProvider"
 import { useDispatch, useSelector } from "react-redux"
 import { addMultipleStudents } from "../../Store/StudentSlice"
 
@@ -44,7 +43,6 @@ const CreateTask = () => {
           updatesupabaseTask(student.studentId, updatedTaskList[idx])
         )
       ).then(async () => {
-      
         const { data } = await fetchStudentData({
           id: loginUserData.id,
           role: loginUserData.role,
@@ -72,7 +70,7 @@ const CreateTask = () => {
         id: loginUserData.id,
         role: loginUserData.role,
       })
-
+      console.log(data)
       dispatch(addMultipleStudents(data))
     }
 

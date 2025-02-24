@@ -8,7 +8,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import SignUp from "./Components/Auth/SignUp.jsx"
 import Login from "./Components/Auth/Login.jsx"
 import ProctectComponent from "./Components/Auth/ProctectComponent.jsx"
-import ConditionalComponent from "./Components/others/ConditionalComponent.jsx"
+import AdminDashboard from "./Components/Dashboard/AdminDashboard.jsx"
+import EmployeeDashBoard from "./Components/Dashboard/EmployeeDashBoard.jsx"
+import StudentAssignmentPage from "./Pages/StudentAssignmentPage.jsx"
 
 const routes = createBrowserRouter([
   {
@@ -30,12 +32,25 @@ const routes = createBrowserRouter([
         element: <SignUp />,
       },
       {
-        path: "/:role",
+        path: "/admin",
         element: (
           <ProctectComponent>
-            <ConditionalComponent />
+            <AdminDashboard />
           </ProctectComponent>
         ),
+      },
+      {
+        path: "/student",
+        element: (
+          <ProctectComponent>
+            <EmployeeDashBoard />
+          </ProctectComponent>
+        ),
+      },
+      ,
+      {
+        path: "/:student/assignments",
+        element: <StudentAssignmentPage />,
       },
     ],
   },

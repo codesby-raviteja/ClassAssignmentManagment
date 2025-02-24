@@ -1,13 +1,12 @@
 import React from "react"
 import { useSelector } from "react-redux"
+import { Link } from "react-router-dom"
 
 const AllTask = () => {
   const students = useSelector((state) => state.students)[0]
 
-
   const employes =
-    students.length &&
-    students.map((student) => student?.studentData)
+    students.length && students.map((student) => student?.studentData)
 
   return (
     <div className="bg-gray-800 relative    mt-5 rounded h-[calc(100vh-500px)]  font-medium  overflow-hidden">
@@ -24,7 +23,9 @@ const AllTask = () => {
         ) : (
           employes?.map((eachEmploye) => {
             return (
-              <div
+              <Link
+                to={`/${eachEmploye?.name}/Assignments`}
+                state={eachEmploye?.id}
                 key={eachEmploye?.id}
                 className="bg-gray-500 py-2 px-6 grid grid-cols-4  font-medium rounded"
               >
@@ -38,7 +39,7 @@ const AllTask = () => {
                 <span className="text-right">
                   {eachEmploye?.tasks?.filter((task) => !task.completed).length}
                 </span>
-              </div>
+              </Link>
             )
           })
         )}
