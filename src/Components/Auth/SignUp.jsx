@@ -1,6 +1,7 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { UserAuth } from "../../Context/UserLoginProvider"
+import { useSelector } from "react-redux"
 
 export default function SignUp() {
   const [userDetails, setUserDetails] = useState({
@@ -11,11 +12,13 @@ export default function SignUp() {
     category: "",
   })
 
-  const { signUp, setUser } = useContext(UserAuth)
+  const { signUp } = useContext(UserAuth)
+  const loggedInUser = useSelector((state) => state.loginDetails)
   const navigate = useNavigate()
+
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const { SignInData, taskData } = await signUp(userDetails)
+    const res = await signUp(userDetails)
     setUserDetails({
       firstName: "",
       lastName: "",
@@ -23,10 +26,13 @@ export default function SignUp() {
       password: "",
       category: "",
     })
-
-    setUser({SignInData,taskData})
-    navigate(`/${SignInData?.role}`)
   }
+
+  useEffect(() => {
+    if (loggedInUser.length) {
+      navigate(`/${loggedInUser[0].role}`)
+    }
+  }, [loggedInUser])
 
   return (
     <div className="h-screen w-screen flex items-center justify-center">

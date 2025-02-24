@@ -4,10 +4,10 @@ import { useSelector } from "react-redux"
 const AllTask = () => {
   const students = useSelector((state) => state.students)[0]
 
+
   const employes =
-    students.length && students.map((student) => student?.studentData)
-
-
+    students.length &&
+    students.map((student) => student?.studentData)
 
   return (
     <div className="bg-gray-800 relative    mt-5 rounded h-[calc(100vh-500px)]  font-medium  overflow-hidden">

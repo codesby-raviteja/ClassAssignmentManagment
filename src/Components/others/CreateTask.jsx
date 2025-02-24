@@ -44,7 +44,7 @@ const CreateTask = () => {
           updatesupabaseTask(student.studentId, updatedTaskList[idx])
         )
       ).then(async () => {
-        console.log("DONE AT LAST")
+      
         const { data } = await fetchStudentData({
           id: loginUserData.id,
           role: loginUserData.role,

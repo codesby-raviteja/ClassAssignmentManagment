@@ -11,6 +11,7 @@ export default function PendingTask({ taskItem, studentId }) {
   const loggedInUser = useSelector((state) => state.loginDetails)[0]
   const studentFetchedData = useSelector((state) => state.students)[0]
   const dispatch = useDispatch(loggedInUser)
+
   const markAsCompleted = async (id) => {
     const newUpdatedTaskData = studentFetchedData.studentData.tasks.map(
       (task) => {
@@ -25,9 +26,11 @@ export default function PendingTask({ taskItem, studentId }) {
       ...studentFetchedData.studentData,
       tasks: newUpdatedTaskData,
     }
-    await updatesupabaseTask(studentFetchedData.id, updatedStudentData)
+
+    await updatesupabaseTask(updatedStudentData.id, updatedStudentData) // Updating the task in Database and waiting untill it is finished
 
     const { data } = await fetchStudentData({
+      // fetching the updated Data from Database and so mantain updated UI
       id: loggedInUser.sub,
       role: loggedInUser.role,
     })

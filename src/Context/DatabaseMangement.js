@@ -52,9 +52,7 @@ export const updatesupabaseTask = async (id, studentData) => {
       .eq("studentId", id)
     if (error) {
       throw error
-    } else {
-      console.log(data)
-    }
+    } 
   } catch (err) {
     console.log(err)
   }

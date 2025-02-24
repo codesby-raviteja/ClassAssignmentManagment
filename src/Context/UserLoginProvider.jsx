@@ -64,17 +64,17 @@ const UserAuthProvider = ({ children }) => {
           dispatch(addLoggedInUser(data?.user?.user_metadata))
           dispatch(addStudent(studentData[0]))
 
-          return {
-            SignInData: data?.user?.user_metadata,
-            taskData: studentData,
-          }
+          return
         }
-        const { data: taskData, error } = await fetchStudentData({
+        // IF SINGED UP USER IS ADMIN THIS CODE WILL RUN
+        const { data: studentData, error } = await fetchStudentData({
           id: data?.user?.id,
-          role: data?.user?.role,
+          role: data?.user?.user_metadata?.role,
         })
-        console.log(taskData)
-        return { SignInData: data?.user?.user_metadata, taskData }
+
+        dispatch(addLoggedInUser(data?.user?.user_metadata))
+        dispatch(addMultipleStudents(studentData))
+        return
       }
     } catch (error) {
       console.log(error)
