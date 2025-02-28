@@ -32,19 +32,27 @@
 
 - Track assignment completion status.
 
-#  🛠️ Tech Stack
+# 🛠️ Tech Stack
 
 **Frontend:** React, Redux-tool-kit, Tailwind CSS
 
 **Backend:** Supabase (Auth, Database, Storage)
 
-**Deployment:** Netlify 
+**Deployment:** Netlify
+
+### Credentials
+
+     - **Admin Credentials**
+        -Email: dummyadmin@email.com
+        -password : dummy@admin
 
 
-## 🛠️ Pending
-- Form Error Handling (working on it) 
+     - **Student Credentials**
+        -Email:  ravitejacoder@email.com
+        -password : raviteja@student
 
 # 🏗️ Installation & Setup
+
 ### 1️⃣ Clone the Repository
 
 - git clone https://github.com/codesby-raviteja/ClassAssignmentManagment.github
@@ -61,8 +69,8 @@
 
 - Create a .env file in the root directory and add:
 
-     - VITE_SUPABASE_URL=your-supabase-url 
-     - VITE_SUPABASE_ANON_KEY=your-anon-key
+  - VITE_SUPABASE_URL=your-supabase-url
+  - VITE_SUPABASE_ANON_KEY=your-anon-key
 
 ### 4️⃣ Run the Project
 
@@ -73,5 +81,3 @@
 - Improve UI/UX with better design elements.
 
 - Implement grading and feedback system.
-
-

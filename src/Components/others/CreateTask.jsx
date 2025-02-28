@@ -1,4 +1,4 @@
-import React, {  useState } from "react"
+import React, { useState } from "react"
 import {
   fetchStudentData,
   updatesupabaseTask,
@@ -37,7 +37,7 @@ const CreateTask = () => {
         newUpdatedStudentData.tasks.push(newTask)
         return newUpdatedStudentData
       })
-      console.log(updatedTaskList)
+
       const data = Promise.all(
         students.map((student, idx) =>
           updatesupabaseTask(student.studentId, updatedTaskList[idx])
@@ -70,7 +70,6 @@ const CreateTask = () => {
         id: loginUserData.id,
         role: loginUserData.role,
       })
-      console.log(data)
       dispatch(addMultipleStudents(data))
     }
 

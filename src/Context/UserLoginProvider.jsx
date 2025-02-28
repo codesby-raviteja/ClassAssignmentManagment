@@ -8,7 +8,6 @@ import { addMultipleStudents, addStudent } from "../Store/StudentSlice"
 export const UserAuth = createContext(null)
 
 const UserAuthProvider = ({ children }) => {
-
   const dispatch = useDispatch()
 
   const singIn = async ({ email, password }) => {
@@ -31,10 +30,9 @@ const UserAuthProvider = ({ children }) => {
         } else {
           dispatch(addStudent(studentData[0]))
         }
-        
       }
     } catch (error) {
-      console.log(error)
+      alert(error.message)
     }
   }
 

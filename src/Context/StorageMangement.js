@@ -6,8 +6,6 @@ export const uploadPDF = async (studentId, taskId, file) => {
     .upload(studentId + "/" + taskId, file)
   if (error) {
     throw error
-  } else {
-    console.log(data)
-  }
+  } 
 }
 
