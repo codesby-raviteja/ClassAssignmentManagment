@@ -57,7 +57,7 @@ export const validateForm = (userdata) => {
       ) {
         errors[key] = rule.message
         isOneRuleSatisfied = true
-      } else if (userdata[key].length < rule.minlength) {
+      } else if (!isOneRuleSatisfied && userdata[key].length < rule.minlength) {
         errors[key] = rule.message
       }
     })
